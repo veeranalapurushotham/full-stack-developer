@@ -1,3 +1,5 @@
+//suttle pallet 
+//here is a simple to  add  list app using html and javascript
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,30 +7,81 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> to do a list </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #abb3bd;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 {
+                color: #0f0e0e;
+            }
+            input[type="text"] {
+                padding: 10px;
+                width: 300px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                padding: 10px 15px;
+                background-color: #aca222;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #37355a02;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                background-color: #a0af88;
+                margin-bottom: 10px;
+                padding: 10px;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        </style>       
     </head>
     <body>
         <h1> Add a tasks </h1>
         <br>
-        
+
              <input type="text" id="taskInput" placeholder="Enter a task">
              <button id="addButton">Add Task</button>
                 <ul id="taskList">
                     <li>task 1</li>
                     <li>task 2</li>
                 </ul>
-        <script>
+                
+
+    </body>
+</html>
+<script>
             $(document).ready(function(){
                 $("#addButton").click(function()
             {
                 let task=$("#taskInput").val();
                 if(task){
-                    $("#taskList").append("<li>"+task+"</li>");
+                    $("#taskList").append(
+                        `<li>${task}
+                            <button class="done">completed</button>
+                            <button class='delete'>delete</button>
+                        </li>`
+                    );
                     $("#taskInput").val("");
                 }
+            });
 
-            })
-            })
-            </script>
-
-    </body>
-</html>
+        $("#taskList").on("click",".done",function(){
+            $(this).parent().css("background-color","cyan");
+        });
+        $("#taskList").on("click",".delete",function(){
+            $(this).parent().remove();  
+        });
+            });
+</script>

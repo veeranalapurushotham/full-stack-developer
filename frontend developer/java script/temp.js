@@ -26,5 +26,5 @@ console.log(modulus);
 let age=25;
 if(age>=18)
 {
-    console.log.apply("you are eligible");
+    console.log("you are eligible");
 }

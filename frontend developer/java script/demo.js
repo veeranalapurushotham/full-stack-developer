@@ -6,3 +6,8 @@ while(i<=20)
     console.log(` ${number} * ${i}= `,number*i);
     i++;
 }
+//add a event listener
+MmyDiv.addEventListener("click", () => {
+    alert("you clicked me");
+});
+
